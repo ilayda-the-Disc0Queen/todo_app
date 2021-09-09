@@ -35,26 +35,42 @@ class _MyHomePageState extends State<MyHomePage> {
         child: DefaultTabController(
           length: 3,
           child: new Scaffold(
-            body: TabBarView(
-              children: [
-                new Container(color: Colors.yellow),
-                new Container(color: Colors.orange),
-                new Container(color: Colors.lightGreen),
-              ],
+            body: Stack(children: <Widget>[
+              TabBarView(
+                children: [
+                  new Container(color: Colors.grey),
+                  new Container(color: Colors.orange),
+                  new Container(color: Colors.lightGreen),
+                ],
+              ),
+              Container(
+                height: 150,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50),
+                  ),
+                  color: Colors.white,
+                ),
+              ),
+            ]),
+            appBar: AppBar(
+              elevation: 0,
+              title: TabBar(
+                tabs: [
+                  Tab(icon: new Icon(Icons.home)),
+                  Tab(icon: new Icon(Icons.rss_feed)),
+                  Tab(icon: new Icon(Icons.perm_identity)),
+                ],
+                labelColor: Colors.yellow,
+                unselectedLabelColor: Colors.blue,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorPadding: EdgeInsets.all(5.0),
+                indicatorColor: Colors.blue,
+              ),
+              backgroundColor: Colors.white,
             ),
-            appBar: TabBar(
-              tabs: [
-                Tab(icon: new Icon(Icons.home)),
-                Tab(icon: new Icon(Icons.rss_feed)),
-                Tab(icon: new Icon(Icons.perm_identity)),
-              ],
-              labelColor: Colors.yellow,
-              unselectedLabelColor: Colors.blue,
-              indicatorSize: TabBarIndicatorSize.label,
-              indicatorPadding: EdgeInsets.all(5.0),
-              indicatorColor: Colors.red,
-            ),
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.pink,
           ),
         ),
       ),
