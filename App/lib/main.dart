@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/models/constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.yellow,
+      color: Colors.pink,
       home: SafeArea(
         child: DefaultTabController(
           length: 3,
@@ -38,12 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
             body: Stack(children: <Widget>[
               TabBarView(
                 children: [
-                  new Container(color: Colors.grey),
+                  new Container(color: kDarkGreyColour),
                   new Container(color: Colors.orange),
                   new Container(color: Colors.lightGreen),
                 ],
               ),
               Container(
+                padding: EdgeInsets.only(left: 50),
                 height: 150,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -52,7 +54,34 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   color: Colors.white,
                 ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('Intray', style: kIntrayTextStyle),
+                    Container(),
+                  ],
+                ),
               ),
+              Container(
+                margin: EdgeInsets.only(
+                    top: 120,
+                    left: (MediaQuery.of(context).size.width * 0.5) -
+                        (kPlusButtonHeight / 2)),
+                child: Container(
+                  height: kPlusButtonHeight,
+                  width: kPlusButtonHeight,
+                  child: FloatingActionButton(
+                    // to change the size of the button more easily, wrap it in a
+                    // container
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.add,
+                      size: 60,
+                    ),
+                    backgroundColor: kRedColour,
+                  ),
+                ),
+              )
             ]),
             appBar: AppBar(
               elevation: 0,
@@ -62,11 +91,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   Tab(icon: new Icon(Icons.rss_feed)),
                   Tab(icon: new Icon(Icons.perm_identity)),
                 ],
-                labelColor: Colors.yellow,
-                unselectedLabelColor: Colors.blue,
+                labelColor: kDarkGreyColour,
+                unselectedLabelColor: kLighterDarkGreyColour,
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorPadding: EdgeInsets.all(5.0),
-                indicatorColor: Colors.blue,
+                indicatorColor: Colors.white,
               ),
               backgroundColor: Colors.white,
             ),
