@@ -10,3 +10,9 @@ TextStyle kIntrayTextStyle = TextStyle(
     fontWeight: FontWeight.w700,
     color: kDarkGreyColour,
     fontSize: 50);
+
+TextStyle kDarkTodoTitle = TextStyle(
+    fontFamily: 'Avenir',
+    fontWeight: FontWeight.w700,
+    color: kDarkGreyColour,
+    fontSize: 30);
