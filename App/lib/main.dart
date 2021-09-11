@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/UI/intray/intray_page.dart';
 import 'package:todo_app/models/constants.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.pink,
+      // color: Colors.pink,
       home: SafeArea(
         child: DefaultTabController(
           length: 3,
@@ -39,9 +40,9 @@ class _MyHomePageState extends State<MyHomePage> {
             body: Stack(children: <Widget>[
               TabBarView(
                 children: [
+                  IntrayPage(),
+                  new Container(color: kLighterDarkGreyColour),
                   new Container(color: kDarkGreyColour),
-                  new Container(color: Colors.orange),
-                  new Container(color: Colors.lightGreen),
                 ],
               ),
               Container(
@@ -99,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               backgroundColor: Colors.white,
             ),
-            backgroundColor: Colors.pink,
+            // backgroundColor: Colors.pink,
           ),
         ),
       ),
